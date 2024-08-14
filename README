@@ -1,10 +1,13 @@
+This project looks into developing an AutoEncoder model and utilizing the CIFAR 10 model.
 
-Layers of First Model
+- Jupyter Notebook is used to code
+- Three Denoising Autoencoders are generated each with 100 EPOCH training
+    - DAE  - supervised model using MSE loss function
+    - DAE2 - supervised model using BinaryCrossEntropy loss function
+    - DAE3 - unsupervised model using MSE loss function
 
+The predicted models are evaluated using Image Quality Metrics
+- MSE (Mean Squared Error)
+- PSNR (Peak Signal-to-Noise Ratio)
+- SSIM (Structured Similary Index)
 
-Image metrics considered
-MSE, PSNR, SSIM, VIF
-
-
-Let's train two models
-supervised, unsupervised
