@@ -28,30 +28,46 @@ Here are a list of websites that I used to learn about AutoEncoders:
 
 Questions during the project:
 Q: How to create a model?
-A: There a multiple ways to create a model. They can be created either via "Functional API", subclassing the Model class or with the sequential class. I used the subclassing the Model clas options as I found it easier to read. More details here: https://www.tensorflow.org/api_docs/python/tf/keras/Model
+A: There a multiple ways to create a model. They can be created either via "Functional API", subclassing the Model class or with the sequential class. I used the subclassing the Model class options as I found it easier to read. [1]
 
 Q: How to structure the hidden layers?
 
 
-- How do each 
 Q: How to load and save a model?
-A: https://colab.research.google.com/github/dlmacedo/starter-academic/blob/master/content/courses/deeplearning/notebooks/tensorflow/saving_and_serializing.ipynb#scrollTo=h2PM_PL1SzPo
-- Which loss function to use?
-- How to evaluate the images?
-Q: Which Image Quality Metric to use?
-A: Image Quality Metric considered are:
-MSE, PSNR, SSIM, VIF, 
+A: You can use model.save() and tf.keras.models.load_model().[2] HOWEVER, this depends on how you developed the model. I didn't know that I chose the most readable model to make using the sublclass of the Model class but it being the hardest to save because of the Model I created is a custom model.
+Since the class I made Denoise is within the same Jupyter Notebook, then the import is not a problem.
 
+Q: Which loss function to use?
+A: The most common loss function is MSE Loss and L1 Loss for autoencoders. [3] I also chose to use BinaryCrossEntropy which is meant to be good for classification. But I wanted to see what the differences are.
+
+Q: How to run the model?
+A: Once the training is done, you can use model.predict(input_image) to create a denoised output.
+
+Q: Which Image Quality Metric to use?
+A: Image Quality Metric considered are: MSE, PSNR, SSIM, VIF.
+
+Q: What are some other available image datasets?
+A: I have found image datasets here in [4] and I was figuring out how to easily load them. Similar to how the CIFAR10 was easily loaded. So I checked for other available datasets in tensorflow [5] but none are coloured except for CIFAR10 and CIFAR100. I then found this tutorial [6] which has the Flowers dataset made by the TensorFlow team which showcases how the data is loaded.
 
 Q: How to use the model for other image datasets?
 A: You can use any dataset however you must make sure to preprocess the images to fit the input size required by your model. This is of size (32, 32, 3). The noise are added using the available add_gaussian_noise() function.
 
 
 Other datasets considered:
-https://medium.com/data-science-bootcamp/famous-machine-learning-datasets-you-need-to-know-dd031bf74dd
 
 
-Person Information
+
+
+Links:
+[1] https://www.tensorflow.org/api_docs/python/tf/keras/Model
+[2] https://www.tensorflow.org/guide/keras/serialization_and_saving
+[3] https://medium.com/@bhipanshudhupar/loss-functions-in-simple-autoencoders-mse-vs-l1-loss-4e838ae425b9#:~:text=Reconstruction%20Loss%3A%20When%20training%20an,in%20guiding%20the%20training%20process.
+[4] https://paperswithcode.com/datasets?mod=images
+[5] https://www.tensorflow.org/api_docs/python/tf/keras/datasets
+[6] https://www.tensorflow.org/tutorials/load_data/images
+
+
+Personal Information
 Name: Kenneth Cynric Dasalla
 Contact: 07852903622
 Email: dasallakc@gmail.com
