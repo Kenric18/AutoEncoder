@@ -1,14 +1,57 @@
-This project looks into developing an AutoEncoder model and utilizing the CIFAR 10 model.
+This project looks into developing an AutoEncoder model and utilizing the CIFAR 10 dataset.
 
-- Jupyter Notebook is used to code
-- Three Denoising Autoencoders are generated each with 100 EPOCH training
+NB: I have removed the frog images from the dataset because I actually have a slight phobia of them. :'(
+
+## Overview
+The entire code is written within Jupyter Notebook.
+The code looks into developing an autoencoder model. Three models has been developed (more discussion in the process section).
+
+The models are:
     - DAE  - supervised model using MSE loss function
     - DAE2 - supervised model using BinaryCrossEntropy loss function
     - DAE3 - unsupervised model using MSE loss function
 
-The predicted models are evaluated using Image Quality Metrics
+The predicted output of the models are evaluated using Image Quality Metrics
 - MSE (Mean Squared Error)
 - PSNR (Peak Signal-to-Noise Ratio)
 - SSIM (Structured Similary Index)
 
-The models are also evaluated on Flower Dataset from TensorFlow
+The models are also evaluated on Non-CIFAR 10 images called Flowers by the TensorFlow team.
+
+## Process
+This is the very first model(s) I have ever created and it was a big learning curve but it was very rewarding.
+
+Here are a list of websites that I used to learn about AutoEncoders:
+- https://www.tensorflow.org/tutorials/generative/autoencoder
+- https://www.deeplearningbook.org/ (Deep Learning Book: Chapter 14)
+
+
+Questions during the project:
+Q: How to create a model?
+A: There a multiple ways to create a model. They can be created either via "Functional API", subclassing the Model class or with the sequential class. I used the subclassing the Model clas options as I found it easier to read. More details here: https://www.tensorflow.org/api_docs/python/tf/keras/Model
+
+Q: How to structure the hidden layers?
+
+
+- How do each 
+Q: How to load and save a model?
+A: https://colab.research.google.com/github/dlmacedo/starter-academic/blob/master/content/courses/deeplearning/notebooks/tensorflow/saving_and_serializing.ipynb#scrollTo=h2PM_PL1SzPo
+- Which loss function to use?
+- How to evaluate the images?
+Q: Which Image Quality Metric to use?
+A: Image Quality Metric considered are:
+MSE, PSNR, SSIM, VIF, 
+
+
+Q: How to use the model for other image datasets?
+A: You can use any dataset however you must make sure to preprocess the images to fit the input size required by your model. This is of size (32, 32, 3). The noise are added using the available add_gaussian_noise() function.
+
+
+Other datasets considered:
+https://medium.com/data-science-bootcamp/famous-machine-learning-datasets-you-need-to-know-dd031bf74dd
+
+
+Person Information
+Name: Kenneth Cynric Dasalla
+Contact: 07852903622
+Email: dasallakc@gmail.com
