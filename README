@@ -2,7 +2,7 @@ This project looks into developing an AutoEncoder model and utilizing the CIFAR 
 
 NB: I have removed the frog images from the dataset because I actually have a slight phobia of them. :'(
 
-## Overview
+## Overview ##
 The entire code is written within Jupyter Notebook.
 The code looks into developing an autoencoder model. Three models has been developed (more discussion in the process section).
 
@@ -18,27 +18,28 @@ The predicted output of the models are evaluated using Image Quality Metrics
 
 The models are also evaluated on Non-CIFAR 10 images called Flowers by the TensorFlow team.
 
-## Process
+## Process ##
 This is the very first model(s) I have ever created and it was a big learning curve but it was very rewarding.
 
 Here are a list of websites that I used to learn about AutoEncoders:
 - https://www.tensorflow.org/tutorials/generative/autoencoder
 - https://www.deeplearningbook.org/ (Deep Learning Book: Chapter 14)
 
-
 Questions during the project:
 Q: How to create a model?
 A: There a multiple ways to create a model. They can be created either via "Functional API", subclassing the Model class or with the sequential class. I used the subclassing the Model class options as I found it easier to read. [1]
 
 Q: How to structure the hidden layers?
-
+A: First I needed to understand what are the layers for a CNN. These are Convolution Layer, Pooling Layer and Dense Layers. I have figured out that there is no one to one answer. It really depends on the image dataset and experimentation of different components. I have not yet fully grasped all of the layers but I have taken a look at sample autoencoders and how they structured their layers. I have found out that the encoder and decoder are almost opposite from one another. So I have structured my layers by filtering an incrementing amount of CONV layers with BN and ReLU in between. Therefore the encoder is as follows:
+CONV(16) => BN => RELU => CONV(32) => BN => RELU ==> CONV(64) => BN => RELU ==> CONV(128) => BN => RELU
+The decoder is just the opposite. This can be further improved. And I wish to improve it more as I learn more about CNNs.s
 
 Q: How to load and save a model?
 A: You can use model.save() and tf.keras.models.load_model().[2] HOWEVER, this depends on how you developed the model. I didn't know that I chose the most readable model to make using the sublclass of the Model class but it being the hardest to save because of the Model I created is a custom model.
 Since the class I made Denoise is within the same Jupyter Notebook, then the import is not a problem.
 
 Q: Which loss function to use?
-A: The most common loss function is MSE Loss and L1 Loss for autoencoders. [3] I also chose to use BinaryCrossEntropy which is meant to be good for classification. But I wanted to see what the differences are.
+A: The most common loss function is MSE Loss and L1 Loss for autoencoders. [3] I also chose to use BinaryCrossEntropy which is meant to be good for classification as I wanted to see what if it even makes a difference. Answer: Very little.
 
 Q: How to run the model?
 A: Once the training is done, you can use model.predict(input_image) to create a denoised output.
@@ -53,10 +54,9 @@ Q: How to use the model for other image datasets?
 A: You can use any dataset however you must make sure to preprocess the images to fit the input size required by your model. This is of size (32, 32, 3). The noise are added using the available add_gaussian_noise() function.
 
 
-Other datasets considered:
-
-
-
+Future work:
+- Identify how the models can be improved
+- Fully understand how layers work in CNNs (for further reading: [7])
 
 Links:
 [1] https://www.tensorflow.org/api_docs/python/tf/keras/Model
@@ -65,6 +65,8 @@ Links:
 [4] https://paperswithcode.com/datasets?mod=images
 [5] https://www.tensorflow.org/api_docs/python/tf/keras/datasets
 [6] https://www.tensorflow.org/tutorials/load_data/images
+[7] https://poloclub.github.io/cnn-explainer/
+
 
 
 Personal Information
