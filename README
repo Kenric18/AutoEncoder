@@ -13,6 +13,7 @@ The models are:
 
 The denoised output are saved in cifar_output.npz. Each output from the models are saved as:
 "denoised1", "denoised2", "denoised3"
+The denoised output can be located here: https://drive.google.com/drive/folders/1EJhDvToM9d5-3CsKV9G2AhQdopItbZzH?usp=sharing
 
 The predicted output of the models are evaluated using Image Quality Metrics
 - MSE (Mean Squared Error)
