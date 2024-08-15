@@ -48,7 +48,7 @@ Q: Which Image Quality Metric to use?
 A: Image Quality Metric considered are: MSE, PSNR, SSIM, VIF.
 
 Q: What are some other available image datasets?
-A: I have found image datasets here in [4] and I was figuring out how to easily load them. Similar to how the CIFAR10 was easily loaded. So I checked for other available datasets in tensorflow [5] but none are coloured except for CIFAR10 and CIFAR100. I then found this tutorial [6] which has the Flowers dataset made by the TensorFlow team which showcases how the data is loaded.
+A: I have found image datasets here in [4] and I was figuring out how to easily load them. Similar to how the CIFAR10 was easily loaded. So I checked for other available datasets in tensorflow [5] but none are coloured except for CIFAR10 and CIFAR100. I then found the TensorFlow Flower Dataset when trying to search for ways to load the ImageNet and used that instead [6].
 
 Q: How to use the model for other image datasets?
 A: You can use any dataset however you must make sure to preprocess the images to fit the input size required by your model. This is of size (32, 32, 3). The noise are added using the available add_gaussian_noise() function.
@@ -64,7 +64,7 @@ Links:
 [3] https://medium.com/@bhipanshudhupar/loss-functions-in-simple-autoencoders-mse-vs-l1-loss-4e838ae425b9#:~:text=Reconstruction%20Loss%3A%20When%20training%20an,in%20guiding%20the%20training%20process.
 [4] https://paperswithcode.com/datasets?mod=images
 [5] https://www.tensorflow.org/api_docs/python/tf/keras/datasets
-[6] https://www.tensorflow.org/tutorials/load_data/images
+[6] https://www.tensorflow.org/tutorials/images/transfer_learning_with_hub
 [7] https://poloclub.github.io/cnn-explainer/
 
 
