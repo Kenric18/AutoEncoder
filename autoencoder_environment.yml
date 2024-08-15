@@ -2,10 +2,11 @@ name: Auto
 channels:
   - defaults
 dependencies:
-  - opencv=4.6.0
+  - opencv=4.10.0
   - pandas=2.2.2
   - python=3.11.9
   - yaml=0.2.5
+  - matplotlib=3.8.4
   - pip:
       - keras==3.5.0
       - tensorboard==2.17.0
