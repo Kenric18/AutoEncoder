@@ -1,2 +1,3 @@
 datasets/
 cifar10_noisy_data.npz
+cifar10_output.npz
